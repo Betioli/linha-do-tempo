@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linha do Tempo - Plano de Marketing 90 Dias</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .font-display { font-family: 'Barlow Condensed', sans-serif; }
+    .font-body { font-family: 'Montserrat', sans-serif; }
+    
+    /* Timeline line */
+    .timeline-line {
+      background: linear-gradient(180deg, #d4a574 0%, #b8956e 100%);
+      width: 4px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0;
+      animation: growLine 2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes growLine {
+      to { height: 100%; }
+    }
+    
+    /* Card animations */
+    .timeline-card {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideIn 0.6s ease-out forwards;
+    }
+    
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Dot pulse animation */
+    .timeline-dot {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4); 
+      }
+      50% { 
+        box-shadow: 0 0 0 10px rgba(212, 165, 116, 0); 
+      }
+    }
+    
+    /* Header animation */
+    .header-animate {
+      opacity: 0;
+      animation: fadeDown 0.3s ease-out forwards;
+    }
+    
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    /* Icon hover effect */
+    .icon-container {
+      transition: transform 0.3s ease;
+    }
+    
+    .icon-container:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Card hover */
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    
+    /* Stagger delays */
+    .delay-1 { animation-delay: 0.6s; }
+    .delay-2 { animation-delay: 0.9s; }
+    .delay-3 { animation-delay: 1.2s; }
+    .delay-4 { animation-delay: 1.5s; }
+    .delay-5 { animation-delay: 1.8s; }
+    .delay-6 { animation-delay: 2.1s; }
+    .delay-7 { animation-delay: 2.4s; }
+    .delay-8 { animation-delay: 2.7s; }
+    .delay-9 { animation-delay: 3.0s; }
+    .delay-10 { animation-delay: 3.3s; }
+    .delay-11 { animation-delay: 3.6s; }
+    .delay-12 { animation-delay: 3.9s; }
+    
+    /* Badge styling */
+    .badge-free {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    
+    .badge-invest {
+      background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+    }
+    
+    .badge-result {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+    
+    .badge-neutral {
+      background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    }
+    
+    /* Semi-transparent card */
+    .card-subtle {
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card-subtle:hover {
+      opacity: 0.8;
+    }
+    
+    /* Emphasis card */
+    .card-emphasis {
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+      border-width: 3px;
+    }
+    
+    /* Small card styling */
+    .card-small {
+      max-width: 680px;
+    }
+    
+    /* Center card */
+    .card-center {
+      max-width: 600px;
+    }
+    
+    /* Bullet list styling */
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .bullet-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #d4a574;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Custom adjustments for parallel layout */
+    .timeline-section {
+      min-height: 400px; /* Ajuste conforme necessário */
+    }
+  </style>
+</head>
+
+<body class="h-full font-body bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+  <div class="min-h-full w-full overflow-auto">
+    
+    <!-- Header -->
+    <header class="text-center py-12 px-4 header-animate">
+      <h1 class="font-display text-5xl font-bold text-gray-800 mb-3">
+        <span class="text-5xl">✨</span> Plano Estratégico de 90 Dias
+      </h1>
+      <p class="font-body text-lg text-gray-600 tracking-widest uppercase">
+        Para Seu Studio de Micropigmentação
+      </p>
+      
+      <div class="mt-6 flex justify-center gap-6 text-sm">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full badge-invest"></span>
+          <span class="text-gray-600">Investimento</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full badge-free"></span>
+          <span class="text-gray-600">Sem custo extra</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full badge-result"></span>
+          <span class="text-gray-600">Resultado</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Timeline Container -->
+    <div class="relative max-w-7xl mx-auto px-8 pb-20">
+      
+      <!-- Central Line -->
+      <div class="timeline-line"></div>
+
+      <!-- Timeline Items -->
+      <div class="relative">
+
+        <!-- SEÇÃO 1: GMN + 4 SEMANAS DO INSTAGRAM (PARALELOS) -->
+        <div class="flex items-start mb-12 timeline-section">
+          <!-- COLUNA ESQUERDA - GMN -->
+          <div class="w-1/2 pr-12 text-left">
+            <div class="timeline-card delay-1 card-hover inline-block bg-white rounded-2xl p-6 shadow-lg w-full max-w-lg ml-auto border-l-4 border-amber-600">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-container w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center">
+                  <span class="text-2xl">📍</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-gray-800">Google Meu Negócio</h3>
+                  <span class="badge-invest text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mt-1">INVESTIMENTO</span>
+                </div>
+              </div>
+              
+              <p class="text-gray-700 text-sm mb-3 font-medium">Otimização completa da ficha GMN:</p>
+              <ul class="bullet-list text-gray-600 text-sm leading-relaxed mb-4">
+                <li>Fotos dos melhores serviços já feitos</li>
+                <li>Descrição estratégica otimizada</li>
+                <li>Palavras-chave locais</li>
+                <li>Cadastro completo de serviços</li>
+                <li>1 post para cada tipo de serviço</li>
+                <li>SEO e metadados em todas as fotos</li>
+              </ul>
+              
+              <div class="bg-amber-50 rounded-lg p-3 text-xs text-gray-700 italic">
+                Suas futuras clientes poderão te encontrar com mais facilidade no cenário da concorrência.
+              </div>
+              
+              <div class="flex items-center gap-2 text-amber-700 font-semibold text-sm mt-4">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span>Primeiros 0 - 30 dias (fevereiro)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- LINHA CENTRAL COM DOT -->
+          <div class="relative z-10 flex-shrink-0">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-amber-500 border-4 border-white shadow-lg"></div>
+          </div>
+          
+          <!-- COLUNA DIREITA - 4 SEMANAS DO INSTAGRAM -->
+          <div class="w-1/2 pl-12">
+            <!-- Semana 1 -->
+            <span class="badge-free text-white text-xs font-semibold px-2 py-1 rounded-full ">SEM CUSTO</span>
+            <div class="timeline-card delay-2 card-hover bg-white rounded-2xl p-4 shadow-md card-small border-r-4 border-emerald-500 mb-4">
+              
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl">📱</span>
+                <h4 class="font-display text-lg font-bold text-gray-800">Semana 1 - Atenção</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                Foco em <strong>Reels virais do nicho</strong> (2 por semana) para atrair audiência qualificada.
+              </p>
+            </div>
+            
+            <!-- Semana 2 -->
+            <div class="timeline-card delay-3 card-hover bg-white rounded-2xl p-4 shadow-md card-small border-r-4 border-emerald-500 mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl">🎓</span>
+                <h4 class="font-display text-lg font-bold text-gray-800">Semana 2 - Interesse</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                <strong>Educar clientes</strong> sobre os serviços, técnicas e diferenciais do seu trabalho.
+              </p>
+              
+            </div>
+            
+            <!-- Semana 3 -->
+            <div class="timeline-card delay-4 card-hover bg-white rounded-2xl p-4 shadow-md card-small border-r-4 border-emerald-500 mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl">💝</span>
+                <h4 class="font-display text-lg font-bold text-gray-800">Semana 3 - Desejo</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                <strong>Promoções estratégicas</strong> e aumento da percepção de valor dos serviços.
+              </p>
+              
+            </div>
+            
+            <!-- Semana 4 -->
+            <div class="timeline-card delay-5 card-hover bg-white rounded-2xl p-4 shadow-md card-small border-r-4 border-emerald-500">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl">🎯</span>
+                <h4 class="font-display text-lg font-bold text-gray-800">Semana 4 - Ação</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                <strong>Convite para promoções</strong> e fechamento de agenda com calls to action claros.
+              </p>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD DISCRETO - Correlação GMN + LP -->
+        <div class="flex items-start mb-12">
+          <div class="w-1/2 pr-12 text-left">
+            <div class="timeline-card delay-6 card-hover inline-block bg-gradient-to-br from-gray-50 to-amber-50 rounded-xl p-4 shadow-sm w-full max-w-md ml-auto border-l-2 border-gray-300">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-lg">🔗</span>
+                <h4 class="font-display text-sm font-bold text-gray-700">Sinergia Estratégica</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed italic">
+                Ficha GMN otimizada + Landing Page com SEO = <strong>Relevância nas pesquisas locais</strong>. Os clientes te encontram em vários canais.
+              </p>
+            </div>
+          </div>
+          
+          <div class="relative z-10 flex-shrink-0">
+            <div class="w-4 h-4 rounded-full bg-gray-400 border-3 border-white shadow-sm"></div>
+          </div>
+          
+          <div class="w-1/2 pl-12"></div>
+        </div>
+
+        <!-- SEÇÃO 2: LANDING PAGE + MÊS 2 INSTAGRAM (PARALELOS) -->
+        <div class="flex items-start mb-12 timeline-section">
+          <!-- COLUNA ESQUERDA - LANDING PAGE -->
+          <div class="w-1/2 pr-12 text-left">
+            <div class="timeline-card delay-7 card-hover inline-block bg-white rounded-2xl p-6 shadow-lg w-full max-w-lg ml-auto border-l-4 border-amber-600">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-container w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center">
+                  <span class="text-2xl">🖥️</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-gray-800">Landing Page</h3>
+                  <span class="badge-invest text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mt-1">INVESTIMENTO</span>
+                </div>
+              </div>
+              
+              <p class="text-gray-700 text-sm mb-3 font-medium">Página de conversão otimizada com:</p>
+              <ul class="bullet-list text-gray-600 text-sm leading-relaxed mb-4">
+                <li>Portfólio visual impactante</li>
+                <li>Depoimentos de clientes reais</li>
+                <li>FAQ completo e estratégico</li>
+                <li>Agendamento direto via WhatsApp</li>
+                <li>SEO otimizado para buscas locais</li>
+              </ul>
+              
+              <div class="bg-amber-50 rounded-lg p-3 text-xs text-gray-700 italic">
+                Sua vitrine digital 24/7 trabalhando para converter visitantes em clientes.
+              </div>
+              
+              <div class="flex items-center gap-2 text-amber-700 font-semibold text-sm mt-4">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span> Em Março</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- LINHA CENTRAL COM DOT -->
+          <div class="relative z-10 flex-shrink-0">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-amber-500 border-4 border-white shadow-lg"></div>
+          </div>
+          
+          <!-- COLUNA DIREITA - MÊS 2 INSTAGRAM -->
+          <div class="w-1/2 pl-12">
+            <div class="timeline-card delay-8 card-hover card-emphasis bg-white rounded-2xl p-5 shadow-lg max-w-md border-r-4 border-emerald-600">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="icon-container w-11 h-11 rounded-full bg-emerald-50 flex items-center justify-center">
+                  <span class="text-2xl">📈</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-xl font-bold text-gray-800">Mês 2 - Intensificação</h3>
+                </div>
+              </div>
+              
+              <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                <strong>Repetir o processo AIDA</strong> com volume aumentado:
+              </p>
+              
+              <div class="bg-emerald-50 rounded-lg p-3 mb-3">
+                <p class="text-gray-700 text-xs leading-relaxed">
+                  • Mais vídeos (Reels + Stories)<br>
+                  • Posts estáticos de alta qualidade<br>
+                  • Consolidação da autoridade no nicho
+                </p>
+              </div>
+              
+              <div class="flex items-center gap-2 text-emerald-600 font-semibold text-sm">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span>Em Março</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRÁFEGO PAGO (Esquerda) -->
+        <div class="flex items-start mb-16">
+          <div class="w-1/2 pr-12 text-left">
+            <div class="timeline-card delay-9 card-hover inline-block bg-white rounded-2xl p-6 shadow-lg w-full max-w-lg ml-auto border-l-4 border-amber-600">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-container w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center">
+                  <span class="text-2xl">🚀</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-gray-800">Tráfego Pago</h3>
+                  <span class="badge-invest text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mt-1">INVESTIMENTO</span>
+                </div>
+              </div>
+              
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Campanhas estratégicas no <strong>Instagram e Facebook Ads</strong> direcionadas para o público-alvo da sua região, com perfil já maduro e preparado para alta conversão.
+              </p>
+              
+              <div class="bg-amber-50 rounded-lg p-3 text-xs text-gray-700 italic">
+                Agora sim! Com 2 Meses de conteúdo e autoridade construída, cada real investido traz muito mais retorno.
+              </div>
+              
+              <div class="flex items-center gap-2 text-amber-700 font-semibold text-sm mt-4">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span>Em Abril</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative z-10 flex-shrink-0">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-amber-500 border-4 border-white shadow-lg"></div>
+          </div>
+          
+          <div class="w-1/2 pl-12"></div>
+        </div>
+
+        <!-- CONVERSÃO MÁXIMA - CENTRALIZADO -->
+        <div class="flex justify-center mb-12">
+          <div class="timeline-card delay-10 card-hover bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-2xl card-center border-4 border-purple-500 relative">
+            
+            <!-- Dot centralizado -->
+            <div class="absolute left-1/2 -translate-x-1/2 -top-3 z-10">
+              <div class="timeline-dot w-7 h-7 rounded-full bg-purple-500 border-4 border-white shadow-lg"></div>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mb-3">
+                <span class="text-4xl">💎</span>
+              </div>
+              <h2 class="font-display text-3xl font-bold text-gray-800 mb-2">Conversão Máxima</h2>
+              <span class="badge-result text-white text-sm font-semibold px-4 py-1.5 rounded-full">RESULTADOS</span>
+            </div>
+            
+            <div class="bg-white rounded-xl p-5 mb-4 shadow-inner">
+              <h4 class="font-display text-lg font-bold text-purple-700 mb-3">🎯 Estratégias :</h4>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-500 font-bold mt-0.5">✓</span>
+                  <span><strong>Usar os posts com mais engajamento</strong> dos últimos 2 meses como criativos de anúncios</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-500 font-bold mt-0.5">✓</span>
+                  <span><strong>Resgatar clientes que engajaram</strong> nos primeiros 30 dias através de remarketing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-500 font-bold mt-0.5">✓</span>
+                  <span><strong>Audiências quentes + conteúdo validado</strong> = ROI otimizado</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="text-center">
+              <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                Tráfego pago encontra um perfil <strong>rico em conteúdo, prova social e engajamento orgânico</strong>
+              </p>
+              <p class="text-purple-700 font-bold text-lg">
+                = Taxa de conversão MUITO maior 🚀
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARDS FINAIS - MANUTENÇÃO -->
+        <div class="flex justify-center gap-8 mt-16">
+          
+          <!-- GMN + LP - Otimização Periódica (Semi-transparente) -->
+          <div class="timeline-card delay-11 card-subtle">
+            <div class="bg-white rounded-xl p-5 shadow-md max-w-xs border-2 border-gray-300">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔄</span>
+                <h4 class="font-display text-lg font-bold text-gray-700">GMN + Landing Page</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                <strong>Otimização periódica a cada 4 meses (recomendado)</strong> de acordo com métricas e feedbacks do mercado.
+              </p>
+              <span class="badge-neutral text-white text-xs font-semibold px-2.5 py-1 rounded-full">MANUTENÇÃO</span>
+            </div>
+          </div>
+
+          <!-- Instagram - Trabalho Contínuo (Normal) -->
+          <div class="timeline-card delay-12 card-hover">
+            <div class="bg-white rounded-xl p-5 shadow-lg max-w-xs border-3 border-emerald-500">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">♾️</span>
+                <h4 class="font-display text-lg font-bold text-gray-800">Instagram</h4>
+              </div>
+              <p class="text-gray-600 text-xs leading-relaxed mb-2">
+                <strong>Trabalho contínuo</strong> de criação de conteúdo e nutrição da audiência.
+              </p>
+              <span class="badge-free text-white text-xs font-semibold px-2.5 py-1 rounded-full">CONTÍNUO</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <footer class="text-center py-12 px-4 bg-gradient-to-t from-amber-100/50 to-transparent mt-12">
+      <div class="header-animate" style="animation-delay: 4s;">
+        <p class="font-display text-2xl text-gray-700 mb-4 min-width">
+          Basicamente nos primeiros 2 meses FEV e Mar vamos preparar o Google e o Instagram.<BR>Para que em abril já possamos mandar tráfego para um perfil mais preparado.
+        </p>
+        <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+          Este plano foi criado para <strong>otimizar seu investimento</strong>, construindo uma base sólida antes de investir em tráfego pago. 
+          Cada etapa prepara o terreno para a próxima, garantindo <strong>máximo retorno</strong> com o mínimo de desperdício. (poupando seu dinheiro)
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
